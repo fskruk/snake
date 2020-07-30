@@ -43,15 +43,20 @@ namespace Snake
             }
             else if (dir == Direction.UP)
             {
-                y = y + offset;
+                y = y - offset;
             }
             else if (dir == Direction.DOWN)
             {
-                y = y - offset;
+                y = y + offset;
             }
 
         }
 
+        internal void Clear()
+        {
+            sym = ' ';
+            Draw();
+        }
 
         public void Draw()
         {
