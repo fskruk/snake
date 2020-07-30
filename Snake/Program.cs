@@ -29,14 +29,17 @@ namespace Snake
 
             //p1.Draw();
             //отрисовка рамки
-            HorizontalLine upLine = new HorizontalLine(0, w-1, 1, '#');
-            upLine.Draw();
-            HorizontalLine downLine = new HorizontalLine(0, w-1, h-1, '#');
-            downLine.Draw();
-            VerticalLine RLine = new VerticalLine(0, 1, h-2, '#');
-            RLine.Draw();
-            VerticalLine LLine = new VerticalLine(w-1, 1, h-2, '#');
-            LLine.Draw();
+
+            walls wall = new walls(w, h);
+            wall.Draw();
+            //HorizontalLine upLine = new HorizontalLine(0, w-1, 1, '#');
+            //upLine.Draw();
+            //HorizontalLine downLine = new HorizontalLine(0, w-1, h-1, '#');
+            //downLine.Draw();
+            //VerticalLine RLine = new VerticalLine(0, 1, h-2, '#');
+            //RLine.Draw();
+            //VerticalLine LLine = new VerticalLine(w-1, 1, h-2, '#');
+            //LLine.Draw();
 
             //начальное положение змейки
             Point p1 = new Point( w/2, h/2, '#');
@@ -50,6 +53,13 @@ namespace Snake
 
             while (true)
             {
+
+                if(wall.IsHit(snake) || snake.IsHitTale())
+                {
+                    break;
+
+                }
+
                 if(snake.Eat(food))
                 {
                     food = foodCreator.CreateFood();
@@ -64,13 +74,10 @@ namespace Snake
                 {
                     ConsoleKeyInfo key = Console.ReadKey();
                     snake.HandleKey(key.Key);                    
-                }
-
-
-                
+                }                
                                 
             }
-
+            Console.WriteLine("Проигрыш");
             Console.ReadLine();
         }
     }
