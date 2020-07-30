@@ -15,26 +15,28 @@ namespace Snake
 
         static void Main(string[] args)
         {
+            //размер окна и буфера
             Console.SetWindowSize(80, 25);
             Console.SetBufferSize(80, 25);
 
-            Point p1 = new Point(6, 3, '*');
+            //Point p1 = new Point(6, 3, '*');
 
-            p1.Draw();
-
-            Point p2 = new Point(4, 5, '8');
-                    
-            p2.Draw();
-
+            //p1.Draw();
+            //отрисовка рамки
             HorizontalLine upLine = new HorizontalLine(0, 79, 1, '#');
             upLine.Draw();
             HorizontalLine downLine = new HorizontalLine(0, 79, 24, '#');
             downLine.Draw();
-
             VerticalLine RLine = new VerticalLine(0, 1, 23, '#');
             RLine.Draw();
             VerticalLine LLine = new VerticalLine(79, 1, 23, '#');
             LLine.Draw();
+
+            //начальное положение змейки
+            Point p1 = new Point(39, 12, '*');
+            Snake snake = new Snake(p1, 4, Direction.RIGHT);
+            snake.Draw();
+
 
             Console.ReadLine();
         }
