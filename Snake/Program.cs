@@ -9,6 +9,10 @@ namespace Snake
     class Program
     {
         
+
+        
+
+
         static void Main(string[] args)
         {
 
@@ -20,27 +24,14 @@ namespace Snake
                     
             p2.Draw();
 
+            HorizontalLine line = new HorizontalLine(5, 10, 8, '+');
 
-            List<int> numList = new List<int>();
+            line.Draw();
 
-            numList.Add(0);
-            numList.Add(1);
-            numList.Add(2);
+            VerticalLine vLine = new VerticalLine(7, 20, 25, '#');
 
-            
-            foreach(int i in numList)
-            {
-                Console.WriteLine(i);
-            }
-
-            List<Point> pList = new List<Point>();
-
-            pList.Add(p1);
-            pList.Add(p2);
+            vLine.Draw();
            
-
-            
-
 
             Console.ReadLine();
         }
