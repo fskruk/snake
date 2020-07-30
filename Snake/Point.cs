@@ -69,6 +69,9 @@ namespace Snake
             return x + ", " + y + ", " + sym;
         }
 
-
+        internal bool IsHit(Point food)
+        {
+            return x == food.x && y == food.y;           
+        }
     }
 }
